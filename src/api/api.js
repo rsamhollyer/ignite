@@ -20,6 +20,5 @@ export const popularGames = async () => {
       page_size: 10,
     },
   });
-
   return data;
 };
