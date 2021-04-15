@@ -1,5 +1,3 @@
-import { popularGames } from "./api/api";
-
 function App() {
   return (
     <div className="App">
