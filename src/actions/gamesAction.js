@@ -1,13 +1,18 @@
-import { popularGames } from "../api/api";
+import { popularGames, upcomingGames, newGames } from "../api/api";
 
 //Action Creator
 
 export const loadGames = () => async (dispatch) => {
-  const { results } = await popularGames();
+  const popularData = await popularGames();
+  const upcomingData = await upcomingGames();
+  const newData = await newGames();
+
   dispatch({
     type: "FETCH_GAMES",
     payload: {
-      popular: results,
+      popular: popularData.results,
+      upcoming: upcomingData.results,
+      newGames: newData.results,
     },
   });
 };
