@@ -7,7 +7,7 @@ import Game from "../components/Game";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popluar, newgames, upcoming } = useSelector((state) => state.games);
+  const { popular, newGames, upcoming } = useSelector((state) => state.games);
 
   useEffect(() => {
     dispatch(loadGames());
@@ -18,6 +18,20 @@ const Home = () => {
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
+          <Game game={game} key={game.id} />
+        ))}
+      </Games>
+
+      <h2>Popular Games</h2>
+      <Games>
+        {popular.map((game) => (
+          <Game game={game} key={game.id} />
+        ))}
+      </Games>
+
+      <h2>New Releases</h2>
+      <Games>
+        {newGames.map((game) => (
           <Game game={game} key={game.id} />
         ))}
       </Games>

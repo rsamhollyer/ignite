@@ -33,7 +33,6 @@ export const upcomingGames = async () => {
       page_size: 10,
     },
   });
-  console.log(data);
   return data;
 };
 
