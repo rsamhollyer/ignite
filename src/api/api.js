@@ -26,7 +26,6 @@ export const popularGames = async () => {
 export const upcomingGames = async () => {
   const today = moment().format("YYYY-MM-DD");
   const nextYear = moment().add(1, "year").format("YYYY-MM-DD");
-
   const { data } = await rawgAxios.get("/games", {
     params: {
       dates: `${today},${nextYear}`,
@@ -34,6 +33,7 @@ export const upcomingGames = async () => {
       page_size: 10,
     },
   });
+  console.log(data);
   return data;
 };
 
