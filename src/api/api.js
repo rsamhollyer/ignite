@@ -49,3 +49,9 @@ export const newGames = async () => {
   });
   return data;
 };
+
+export const gameDetails = async (game_id) => {
+  const { data } = await rawgAxios.get(`/games/${game_id}`);
+
+  return data;
+};
