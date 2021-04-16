@@ -16,7 +16,7 @@ const detailReducer = (state = initialState, action) => {
     case "LOADING_DETAIL":
       return {
         ...state,
-        isloading: true,
+        isLoading: true,
       };
 
     default:
