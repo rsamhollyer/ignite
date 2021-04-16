@@ -47,8 +47,7 @@ const CardShadow = styled(motion.div)`
   left: 0;
 
   scrollbar-width: thin;
-  scrollbar-color: #ff7676;
-  scrollbar-track-color: white;
+  scrollbar-color: #ff7676 white;
 
   &::-webkit-scrollbar {
     width: 0.5rem;
