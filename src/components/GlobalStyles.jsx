@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
 html{
     scrollbar-width:thin;
     scrollbar-color:darkgrey;
+    scrollbar-track-color: white;
 
     &::-webkit-scrollbar{
         width:.5rem;
@@ -18,7 +19,9 @@ html{
     &::-webkit-scrollbar-thumb{
         background-color:darkgrey;
     }
-
+    &::-webkit-scrollbar-track {
+    background-color: white;
+  }
 
 }
 
