@@ -4,6 +4,13 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { smallImage } from "../util";
 
+import playstation from "../img/playstation.svg";
+import steam from "../img/steam.svg";
+import xbox from "../img/xbox.svg";
+import nintendo from "../img/nintendo.svg";
+import apple from "../img/apple.svg";
+import gamepad from "../img/gamepad.svg";
+
 const GameDetail = ({ pathId }) => {
   const history = useHistory();
   const { screen, game, isLoading } = useSelector((state) => state.detail);
@@ -13,6 +20,28 @@ const GameDetail = ({ pathId }) => {
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
       history.push("/");
+    }
+  };
+
+  const getPlatform = (platform) => {
+    switch (platform) {
+      case "PlayStation 4":
+      case "PlayStation 5":
+        return playstation;
+
+      case "Xbox One":
+      case "Xbox Series S/X":
+        return xbox;
+      case "PC":
+        return steam;
+      case "Nintendo Switch":
+        return nintendo;
+      case "iOS":
+      case "macOS":
+        return apple;
+
+      default:
+        return gamepad;
     }
   };
 
@@ -30,7 +59,12 @@ const GameDetail = ({ pathId }) => {
                 <h3>Platforms</h3>
                 <Platforms>
                   {game?.platforms?.map((data) => (
-                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                    <img
+                      key={data.platform.id}
+                      src={getPlatform(data.platform.name)}
+                      alt={data.platform.name}
+                      title={data.platform.name}
+                    />
                   ))}
                 </Platforms>
               </Info>
@@ -95,6 +129,7 @@ const Detail = styled(motion.div)`
   position: absolute;
   left: 10%;
   color: black;
+  z-index: 15;
 
   img {
     width: 100%;
