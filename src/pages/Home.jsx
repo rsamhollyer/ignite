@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
+import { fadeIn } from "../animations";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathname && <GameDetail pathId={pathname} />}
