@@ -12,7 +12,7 @@ const rawgAxios = axios.create({
 export const popularGames = async () => {
   const today = moment().format("YYYY-MM-DD");
   const lastYear = moment().subtract(1, "year").format("YYYY-MM-DD");
-
+console.log()
   const { data } = await rawgAxios.get("/games", {
     params: {
       dates: `${lastYear},${today}`,
@@ -65,3 +65,5 @@ export const searchGames = async (game_name) => {
   });
   return data;
 };
+
+
